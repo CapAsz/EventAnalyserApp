@@ -100,4 +100,5 @@
     <string name="charge_same">Same charge</string>
     <string name="charge_diff">Different charge</string>
     <string name="miss_trans_mom_label">Missing transverse momentum (GeV):</string>
+    <string name="percent_data_label">Percentage of data to analyse:</string>
 </resources>

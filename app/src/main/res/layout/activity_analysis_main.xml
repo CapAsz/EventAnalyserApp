@@ -774,6 +774,8 @@
                 android:id="@+id/bTag_max_labels_layout"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@+id/jets_no_min_sb"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -1045,6 +1047,54 @@
                     app:layout_constraintStart_toEndOf="@+id/miss_mom_max" />
 
             </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/percent_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/percent_data_label"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/percent_data_labels_cl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/percent_label_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="0%"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/percent_label_100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100%"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <SeekBar
+                android:id="@+id/percent_sb"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10"
+                android:progress="0" />
 
         </LinearLayout>
 

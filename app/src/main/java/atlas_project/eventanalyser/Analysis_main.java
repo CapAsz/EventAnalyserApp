@@ -1,5 +1,6 @@
 package atlas_project.eventanalyser;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.widget.*;
 
 public class Analysis_main extends AppCompatActivity {
     public int lept_no = 0;
+    public int lept_charge = 0;
+    public int lept_flavour = 0;
     public int lept_min_mass = 0;
     public int lept_max_mass = 200;
     public int lept_mom = 25;
@@ -16,6 +19,9 @@ public class Analysis_main extends AppCompatActivity {
     public int jets_no_max = 9;
     public int bTag_jets_no_min = 0;
     public int bTag_jets_no_max = 9;
+    public int missing_trans_mom_min = 0;
+    public int missing_trans_mom_max = 200;
+    public int percent_data = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,10 @@ public class Analysis_main extends AppCompatActivity {
         final SeekBar jets_no_max_sb = findViewById(R.id.jets_no_max_sb);
         final SeekBar bTag_jets_min_sb = findViewById(R.id.bTag_jets_min_sb);
         final SeekBar bTag_jets_max_sb = findViewById(R.id.bTag_jets_max_sb);
+        final SeekBar miss_mom_min_sb = findViewById(R.id.miss_mom_min_sb);
+        final SeekBar miss_mom_max_sb = findViewById(R.id.miss_mom_max_sb);
+        final SeekBar percent_data_sb = findViewById(R.id.percent_sb);
+        final Button aButton = findViewById(R.id.analyse_button);
 
         lept_no_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -155,7 +165,12 @@ public class Analysis_main extends AppCompatActivity {
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                bTag_jets_no_min = progress;
+                if(bTag_jets_no_min <= bTag_jets_no_max) {
+                    bTag_jets_no_min = progress;
+                }
+                else if (bTag_jets_no_min > bTag_jets_no_max){
+                    bTag_jets_no_min = bTag_jets_no_max;
+                }
             }
         });
 
@@ -166,7 +181,63 @@ public class Analysis_main extends AppCompatActivity {
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                bTag_jets_no_max = progress;
+                if(bTag_jets_no_max >= bTag_jets_no_min) {
+                    bTag_jets_no_max = progress;
+                }
+                else if (bTag_jets_no_max < bTag_jets_no_min){
+                    bTag_jets_no_max = bTag_jets_no_min;
+                }
+            }
+        });
+
+        miss_mom_min_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(missing_trans_mom_min <= missing_trans_mom_max) {
+                    missing_trans_mom_min = progress;
+                }
+                else if (missing_trans_mom_min > missing_trans_mom_max){
+                    missing_trans_mom_min = missing_trans_mom_max;
+                }
+            }
+        });
+
+        miss_mom_max_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if(missing_trans_mom_max >= missing_trans_mom_min) {
+                    missing_trans_mom_max = progress;
+                }
+                else if (missing_trans_mom_max < missing_trans_mom_min){
+                    missing_trans_mom_max = missing_trans_mom_min;
+                }
+            }
+        });
+
+        percent_data_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                percent_data = progress*10;
+            }
+        });
+
+        aButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Analysis_main.this, Menu.class);
+                startActivity(goToTab);
             }
         });
     }
@@ -226,7 +297,8 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     *
+     * When lepton number is 2, 3, or 4, show checkboxes "Choose lepton charge" and "Choose lepton
+     * flavour". Otherwise, hide checkboxes.
      */
     public void leptChargeFlavour() {
         TextView chk1 = findViewById(R.id.lept_charge_chk);
@@ -243,9 +315,7 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     * When checkbox "Minimum transverse momentum (GeV):" is checked show SeekBar for choosing
-     * minimum transverse momentum (set initially to progress 1).
-     * @param view checkbox
+     * @param view checkbox "Choose lepton charge"
      */
     public void leptCharge(View view) {
         ConstraintLayout cl = findViewById(R.id.charge_rb_layout);
@@ -266,9 +336,7 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     * When checkbox "Minimum transverse momentum (GeV):" is checked show SeekBar for choosing
-     * minimum transverse momentum (set initially to progress 1).
-     * @param view checkbox
+     * @param view checkbox "Choose lepton flavour"
      */
     public void leptFlavour(View view) {
         ConstraintLayout cl = findViewById(R.id.flavour_rb_layout);
@@ -290,7 +358,8 @@ public class Analysis_main extends AppCompatActivity {
 
     /**
      * When checkbox "Minimum transverse momentum (GeV):" is checked show SeekBar for choosing
-     * minimum transverse momentum (set initially to progress 1).
+     * minimum transverse momentum (set initially to progress 1). When unchecked reset progress, and
+     * hide SeekBar.
      * @param view checkbox "Minimum transverse momentum (GeV):"
      */
     public void leptMomSeekBar(View view) {
@@ -306,19 +375,23 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     *
+     * When checkbox "Number of jets:" is checked show SeekBar for choosing minimum and maximum
+     * number of jets and checkbox for selecting number of jets that are b-tagged. When unchecked,
+     * reset progress, hide SeekBars and "Any b-tagged jets?" checkbox, and run bTagJetsSeekBar()
+     * method.
      * @param view checkbox "Number of jets:"
      */
     public void jetNoSeekBar(View view) {
+        //ConstraintLayouta nd SeekBar for minimum number of jets
         ConstraintLayout cl = findViewById(R.id.jet_min_labels_layout);
         SeekBar sb1 = findViewById(R.id.jets_no_min_sb);
-
+        //ConstraintLayout and SeekBar for maximum number of jets
         ConstraintLayout cl2 = findViewById(R.id.jet_max_labels_layout);
         SeekBar sb2 = findViewById(R.id.jets_no_max_sb);
-
+        //checkbox for selecting number of jets that are b-tagged
         CheckBox chk1 = findViewById(R.id.bTag_jets);
 
-        //set visibility depending on current visibility
+        //set visibility depending on current visibility and reset progress and checkbox if gone
         if (cl.getVisibility() == View.GONE) {
             cl.setVisibility(View.VISIBLE);
             cl2.setVisibility(View.VISIBLE);
@@ -326,11 +399,9 @@ public class Analysis_main extends AppCompatActivity {
         } else {
             cl.setVisibility(View.GONE);
             sb1.setProgress(0);
-
             cl2.setVisibility(View.GONE);
             sb2.setProgress(9);
             chk1.setVisibility(View.GONE);
-
             //reset min. transverse lepton momentum checkbox
             if(chk1.isChecked()){
                 chk1.toggle();
@@ -340,7 +411,8 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     *
+     * When checkbox "Any b-tagged jets?" is checked show SeekBar for choosing minimum and maximum
+     * number of b-tagged jets. When unchecked, reset progress and hide SeekBars.
      * @param view checkbox "Any b-tagged jets?"
      */
     public void bTagJetsSeekBar(View view) {
@@ -362,32 +434,34 @@ public class Analysis_main extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param view checkbox "Number of jets:"
+     * when checkbox "Missing transverse momentum (GeV):" is checked show SeekBars for choosing
+     * maximum and minimum missing transverse momentum. when unchecked, reset progress and hide
+     * SeekBars.
+     * @param view checkbox "Missing transverse momentum (GeV):"
      */
     public void missTransMomSeekBar(View view) {
+        //ConstraintLayout and SeekBar for minimum missing transverse momentum
         ConstraintLayout cl = findViewById(R.id.miss_mom_min_labels_layout);
         SeekBar sb1 = findViewById(R.id.miss_mom_min_sb);
-
+        //ConstraintLayout and SeekBar for maximum missing transverse momentum
         ConstraintLayout cl2 = findViewById(R.id.miss_mom_max_labels_layout);
         SeekBar sb2 = findViewById(R.id.miss_mom_max_sb);
 
-        //set visibility depending on current visibility
+        //set visibility depending on current visibility and reset progress if vis = gone
         if (cl.getVisibility() == View.GONE) {
             cl.setVisibility(View.VISIBLE);
             cl2.setVisibility(View.VISIBLE);
         } else {
             cl.setVisibility(View.GONE);
             sb1.setProgress(0);
-
             cl2.setVisibility(View.GONE);
             sb2.setProgress(4);
         }
     }
 
     /**
-     *
-     * @param view checkbox "Number of jets:"
+     * When "analyse" button is clicked compile variables into a string, navigate to results.
+     * @param view button "Analyse"
      */
     public void analyse(View view) {
         //TODO constructs string from int variables
