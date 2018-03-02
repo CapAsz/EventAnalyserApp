@@ -10,8 +10,11 @@ import android.widget.*;
 
 public class Analysis_main extends AppCompatActivity {
     public int lept_no = 0;
-    public int lept_charge = 0;
-    public int lept_flavour = 0;
+    public int lept_charge = 1; //same 1, different -1
+    public int lept_flavour = 1;
+    public int lept_1_inv_mass = 0;
+    public int lept_2_inv_mass = 0;
+    public int lept_err_inv_mass = 0;
     public int lept_min_mass = 0;
     public int lept_max_mass = 200;
     public int lept_mom = 25;
@@ -21,7 +24,16 @@ public class Analysis_main extends AppCompatActivity {
     public int bTag_jets_no_max = 9;
     public int missing_trans_mom_min = 0;
     public int missing_trans_mom_max = 200;
-    public int percent_data = 0;
+    public int percent_data = 1;
+    public int lept_charge_chk = 0; //0 if tickck, 1 otherwise
+    public int lept_flavour_chk = 0;
+    public int lept_inv_mass_chk = 0;
+    public int lept_mom_chk = 0;
+    public int bTag_jets_chk = 0;
+    public int lept_no_chk;
+    public int jets_chk = 0;
+    public int missing_trans_chk = 0;
+    public String key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -236,10 +248,29 @@ public class Analysis_main extends AppCompatActivity {
         aButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToTab = new Intent(Analysis_main.this, Menu.class);
+                analyse();
+                Intent goToTab = new Intent(Analysis_main.this, Analysis_results.class);
+                goToTab.putExtra("HistKey", key);
                 startActivity(goToTab);
             }
         });
+    }
+
+    /**
+     * When "analyse" button is clicked compile variables into a string, navigate to results.
+     */
+    public void analyse() {
+        key = "__nlep_val-" +lept_no+ "__LepTmass_val-" +lept_min_mass+ "__LepTmassMax_val-"
+                +lept_max_mass+ "__InvariantM_val-" +lept_1_inv_mass+ "__InvariantM2_val-"
+                +lept_2_inv_mass+ "__Range_val-" +lept_err_inv_mass+ "__leppt_val-" +lept_mom+
+                "__minnjet_val-" +jets_no_min+ "__maxnjet_val-" +jets_no_max+ "__btagmin_val-"
+                +bTag_jets_no_min+ "__btagmax_val-" +bTag_jets_no_max+ "__minmissE_val-"
+                +missing_trans_mom_min+ "__maxmissE_val-" +missing_trans_mom_max+ "__percentg_val-"
+                +percent_data+ "__TwoLepcharge_val-" +lept_charge+ "__TwoLepflavour_cal-"
+                +lept_flavour+ "__st_lepchargecb-" +lept_charge_chk+ "__st_lepflavourcb-"
+                +lept_flavour_chk+ "__st_InvMasscb-" +lept_inv_mass_chk+ "__st_lepptcb-"
+                +lept_mom_chk+ "__st_btagjetcb-" +bTag_jets_chk+ "__st_lepcb-" +lept_no_chk+
+                "__st_jetcb-" +jets_chk+ "__st_missPcb-" +missing_trans_chk;
     }
 
     /**
@@ -457,13 +488,5 @@ public class Analysis_main extends AppCompatActivity {
             cl2.setVisibility(View.GONE);
             sb2.setProgress(4);
         }
-    }
-
-    /**
-     * When "analyse" button is clicked compile variables into a string, navigate to results.
-     * @param view button "Analyse"
-     */
-    public void analyse(View view) {
-        //TODO constructs string from int variables
     }
 }
