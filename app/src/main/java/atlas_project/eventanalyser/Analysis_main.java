@@ -344,24 +344,18 @@ public class Analysis_main extends AppCompatActivity {
      * @param view checkbox "Any b-tagged jets?"
      */
     public void bTagJetsSeekBar(View view) {
-        ConstraintLayout cl_sb1 = findViewById(R.id.bTag_min_sb_layout);
-        ConstraintLayout cl_sb2 = findViewById(R.id.bTag_max_sb_layout);
         SeekBar sb1 = findViewById(R.id.bTag_jets_min_sb);
         SeekBar sb2 = findViewById(R.id.bTag_jets_max_sb);
         ConstraintLayout cl = findViewById(R.id.bTag_min_labels_layout);
         ConstraintLayout cl2 = findViewById(R.id.bTag_max_labels_layout);
         //set visibility depending on current visibility
-        if (cl_sb1.getVisibility() == View.GONE) {
-            cl_sb1.setVisibility(View.VISIBLE);
-            cl_sb2.setVisibility(View.VISIBLE);
+        if (cl.getVisibility() == View.GONE) {
             cl.setVisibility(View.VISIBLE);
             cl2.setVisibility(View.VISIBLE);
         } else {
-            cl_sb1.setVisibility(View.GONE);
             cl.setVisibility(View.GONE);
             sb1.setProgress(0);
 
-            cl_sb2.setVisibility(View.GONE);
             cl2.setVisibility(View.GONE);
             sb2.setProgress(0);
         }
@@ -372,40 +366,30 @@ public class Analysis_main extends AppCompatActivity {
      * @param view checkbox "Number of jets:"
      */
     public void missTransMomSeekBar(View view) {
-        ConstraintLayout cl = findViewById(R.id.jet_min_sb_layout);
-        ConstraintLayout cl_text = findViewById(R.id.jet_min_labels_layout);
-        SeekBar sb1 = findViewById(R.id.jets_no_min_sb);
+        ConstraintLayout cl = findViewById(R.id.miss_mom_min_labels_layout);
+        SeekBar sb1 = findViewById(R.id.miss_mom_min_sb);
 
-        ConstraintLayout cl2 = findViewById(R.id.jet_max_sb_layout);
-        ConstraintLayout cl2_text = findViewById(R.id.jet_max_labels_layout);
-        SeekBar sb2 = findViewById(R.id.jets_no_max_sb);
-
-        CheckBox chk1 = findViewById(R.id.bTag_jets);
+        ConstraintLayout cl2 = findViewById(R.id.miss_mom_max_labels_layout);
+        SeekBar sb2 = findViewById(R.id.miss_mom_max_sb);
 
         //set visibility depending on current visibility
         if (cl.getVisibility() == View.GONE) {
             cl.setVisibility(View.VISIBLE);
-            cl_text.setVisibility(View.VISIBLE);
             cl2.setVisibility(View.VISIBLE);
-            cl2_text.setVisibility(View.VISIBLE);
-
-            chk1.setVisibility(View.VISIBLE);
         } else {
             cl.setVisibility(View.GONE);
-            cl_text.setVisibility(View.GONE);
             sb1.setProgress(0);
 
             cl2.setVisibility(View.GONE);
-            cl2_text.setVisibility(View.GONE);
-            sb2.setProgress(9);
-
-            chk1.setVisibility(View.GONE);
-
-            //reset min. transverse lepton momentum checkbox
-            if(chk1.isChecked()){
-                chk1.toggle();
-                bTagJetsSeekBar(view);
-            }
+            sb2.setProgress(4);
         }
+    }
+
+    /**
+     *
+     * @param view checkbox "Number of jets:"
+     */
+    public void analyse(View view) {
+        //TODO constructs string from int variables
     }
 }
