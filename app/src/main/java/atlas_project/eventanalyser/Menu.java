@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class Menu extends AppCompatActivity {
 
     @Override
