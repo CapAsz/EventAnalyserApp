@@ -1,0 +1,4 @@
+app/*
+!app/src/*
+!app/build.gradle
+!app/proguard-rules.pro
