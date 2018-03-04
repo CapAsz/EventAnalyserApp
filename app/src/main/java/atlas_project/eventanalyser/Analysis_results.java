@@ -27,6 +27,7 @@ public class Analysis_results extends AppCompatActivity {
         setContentView(R.layout.activity_analysis_results);
 
         key = getIntent().getStringExtra("HistKey");
+        Log.i("Fetch Key:", key);
         docRef = FirebaseFirestore.getInstance().collection("imgStore").document(key);
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot> () {

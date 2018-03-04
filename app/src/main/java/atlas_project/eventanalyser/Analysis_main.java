@@ -266,11 +266,11 @@ public class Analysis_main extends AppCompatActivity {
                 "__minnjet_val-" +jets_no_min+ "__maxnjet_val-" +jets_no_max+ "__btagmin_val-"
                 +bTag_jets_no_min+ "__btagmax_val-" +bTag_jets_no_max+ "__minmissE_val-"
                 +missing_trans_mom_min+ "__maxmissE_val-" +missing_trans_mom_max+ "__percentg_val-"
-                +percent_data+ "__TwoLepcharge_val-" +lept_charge+ "__TwoLepflavour_cal-"
+                + percent_data + ".0__TwoLepcharge_val-" +lept_charge+ "__TwoLepflavour_val-"
                 +lept_flavour+ "__st_lepchargecb-" +lept_charge_chk+ "__st_lepflavourcb-"
                 +lept_flavour_chk+ "__st_InvMasscb-" +lept_inv_mass_chk+ "__st_lepptcb-"
                 +lept_mom_chk+ "__st_btagjetcb-" +bTag_jets_chk+ "__st_lepcb-" +lept_no_chk+
-                "__st_jetcb-" +jets_chk+ "__st_missPcb-" +missing_trans_chk;
+                "__st_jetcb-" +jets_chk+ "__st_missPcb-" +missing_trans_chk+ "__samplesKey-";
     }
 
     /**
