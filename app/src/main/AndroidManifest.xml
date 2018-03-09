@@ -25,7 +25,8 @@
         <activity android:name=".Tutorial_main" />
         <activity android:name=".About_main" />
         <activity android:name=".Analysis_main" />
-        <activity android:name=".Analysis_results"></activity>
+        <activity android:name=".Analysis_results" />
+        <activity android:name=".Analysis_samples"></activity>
     </application>
 
 </manifest>

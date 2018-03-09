@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "958024197928",
+    "firebase_url": "https://friedsquid-a1722.firebaseio.com",
+    "project_id": "friedsquid-a1722",
+    "storage_bucket": "friedsquid-a1722.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958024197928:android:98806af8d11bb7a1",
+        "android_client_info": {
+          "package_name": "atlas_project.eventanalyser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958024197928-b853ba8uirb8etfs9lhe8qijco78lc49.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "atlas_project.eventanalyser",
+            "certificate_hash": "29a0337bdee2a3245986f62cd788ed53825956ee"
+          }
+        },
+        {
+          "client_id": "958024197928-9l1qob8rmh70mgnldgr54knota5gs12f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARVoAgeUedjfM7Wm7vRAOl9-EWs2N3crc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958024197928-9l1qob8rmh70mgnldgr54knota5gs12f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

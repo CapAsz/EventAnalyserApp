@@ -88,8 +88,8 @@
     <string name="max">Max:</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="button_analyse">Analyse</string>
-    <string name="lept_min_mass">Minimum lepton mass:</string>
-    <string name="lept_max_mass">Maximum lepton mass:</string>
+    <string name="lept_min_mass">Minimum transverse mass:</string>
+    <string name="lept_max_mass">Maximum transverse mass:</string>
     <string name="title">Event Analyser</string>
     <string name="bTag_max_label">9</string>
     <string name="pref_title_add_friends_to_messages">delete</string>
@@ -102,4 +102,11 @@
     <string name="miss_trans_mom_label">Missing transverse momentum (GeV):</string>
     <string name="percent_data_label">Percentage of data to analyse:</string>
     <string name="back_button">Back</string>
+    <string name="hist_description">Histogram for chosen values</string>
+    <string name="setSamples_label">Choose samples to analyse:</string>
+    <string name="diboson">Diboson processes:</string>
+    <string name="WW_label">WW</string>
+    <string name="ZZ_label">ZZ</string>
+    <string name="WZ">WZ</string>
+    <string name="single_top">Single top quark processes:</string>
 </resources>
