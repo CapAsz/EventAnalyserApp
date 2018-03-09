@@ -1,4 +1,5 @@
 app/*
 !app/src/*
+!app/src/main/java/atlas_project/eventanalyser/*
 !app/build.gradle
 !app/proguard-rules.pro
