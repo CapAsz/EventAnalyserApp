@@ -1,5 +1,7 @@
 package atlas_project.eventanalyser;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +19,7 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -44,6 +47,32 @@ public class Analysis_results extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_results);
+        final ProgressBar progress = findViewById(R.id.progressBar);
+        progress.setVisibility(View.VISIBLE);
+
+        //set up error message for no histogram
+        final AlertDialog.Builder noHistAlert  = new AlertDialog.Builder(this);
+        noHistAlert.setMessage("Analysis for these values has not been run before. To run analysis go to: website.");
+        noHistAlert.setTitle("Error");
+        noHistAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                noHistAlert.create().hide();
+                Intent goToTab = new Intent(Analysis_results.this, Analysis_main.class);
+                startActivity(goToTab);
+            }
+        });
+        noHistAlert.setCancelable(true);
+
+        //set up error messages for FireBase fetch failed
+        final AlertDialog.Builder FireBaseFetchFailAlert  = new AlertDialog.Builder(this);
+        FireBaseFetchFailAlert.setMessage("FireStore fetch failed.");
+        FireBaseFetchFailAlert.setTitle("Error");
+        FireBaseFetchFailAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                FireBaseFetchFailAlert.create().hide();
+            }
+        });
+        FireBaseFetchFailAlert.setCancelable(true);
 
         //get size of screen
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -74,10 +103,16 @@ public class Analysis_results extends AppCompatActivity {
                         }
                     } else {
                         Log.w("Firestore Fetch:", "No such document");
+                        progress.setVisibility(View.GONE);
+                        noHistAlert.create().show();
                     }
                 } else {
                     Log.e("Firestore Fetch:", "get failed with " +task.getException());
+                    FireBaseFetchFailAlert.setMessage("FireStore fetch failed with " +task.getException());
+                    progress.setVisibility(View.GONE);
+                    FireBaseFetchFailAlert.create().show();
                 }
+                progress.setVisibility(View.GONE);
                 histogramsLayout(); //show histograms in side-scrolling grid layout
             }
         });

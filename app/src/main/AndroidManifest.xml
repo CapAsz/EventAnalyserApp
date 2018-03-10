@@ -19,9 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings" />
         <activity android:name=".Tutorial_main" />
         <activity android:name=".About_main" />
         <activity android:name=".Analysis_main" />

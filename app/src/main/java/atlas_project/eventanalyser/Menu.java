@@ -19,7 +19,6 @@ public class Menu extends AppCompatActivity {
         Button tutorialButton = findViewById(R.id.tutorial_button);
         Button eaButton = findViewById(R.id.ea_button);
         Button aboutButton = findViewById(R.id.about_button);
-        ImageButton settButton = findViewById(R.id.settings_button);
 
         tutorialButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,14 +40,6 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent goToTab = new Intent(Menu.this, About_main.class);
-                startActivity(goToTab);
-            }
-        });
-
-        settButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToTab = new Intent(Menu.this, Settings.class);
                 startActivity(goToTab);
             }
         });
