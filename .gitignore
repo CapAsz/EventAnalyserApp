@@ -1,4 +1,9 @@
-app/*
+app/.gradle*
+app/.idea*
+app/build*
+app/gradle*
+app/app.iml
+app/local.properties
 !app/src/*
 !app/build.gradle
 !app/proguard-rules.pro

@@ -9,13 +9,13 @@
 
     <Button
         android:id="@+id/analyse_button"
-        android:layout_width="107dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/black_overlay"
-        android:text="@string/button_analyse"
+        android:text="Choose Samples"
         android:textColor="@color/colorButtonText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,19 +158,20 @@
                 android:textSize="18sp"
                 android:visibility="gone" />
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/charge_rb_layout"
+            <RadioGroup
+                android:id="@+id/charge_rg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 android:visibility="gone">
 
                 <RadioButton
                     android:id="@+id/charge_same"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:text="@string/charge_same"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -183,7 +184,7 @@
                     android:id="@+id/charge_different"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:text="@string/charge_diff"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +192,7 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/charge_same"
                     app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
+            </RadioGroup>
 
             <CheckBox
                 android:id="@+id/lept_flavour_chk"
@@ -204,19 +205,20 @@
                 android:textSize="18sp"
                 android:visibility="gone" />
 
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/flavour_rb_layout"
+            <RadioGroup
+                android:id="@+id/flavour_rg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
+                android:orientation="horizontal"
                 android:visibility="gone">
 
                 <RadioButton
                     android:id="@+id/flavour_same"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:text="@string/flavour_same"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -229,7 +231,7 @@
                     android:id="@+id/flavour_different"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:text="@string/flavour_diff"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -237,6 +239,203 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/flavour_same"
                     app:layout_constraintTop_toTopOf="parent" />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/inv_mass_pair1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:onClick="invMassPair1"
+                android:text="Invariant mass of pair:"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/inv_mass1_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/min_mass_"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_2"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="50"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_3"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_4"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_5"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_4"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/inv_mass1_sb"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="4"
+                    android:progress="0"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/min_mass_" />
+            </android.support.constraint.ConstraintLayout>
+
+            <CheckBox
+                android:id="@+id/inv_mass_pair2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:onClick="invMassPair2"
+                android:text="Invariant mass of second pair:"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/inv_mass2_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/min_mass_6"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_7"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_7"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="50"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_8"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_6"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_8"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_9"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_7"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_9"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="150"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/min_mass_10"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_8"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/min_mass_10"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/min_mass_9"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/inv_mass2_sb"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:max="4"
+                    android:progress="0"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/min_mass_6" />
             </android.support.constraint.ConstraintLayout>
 
             <TextView
