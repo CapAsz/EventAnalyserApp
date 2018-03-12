@@ -5,10 +5,14 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
-public class Analysis_main extends AppCompatActivity {
+public class Tutorial_Step5 extends AppCompatActivity {
     public int lept_no = 0;
     public int lept_charge = 1;
     public int lept_flavour = 1;
@@ -39,8 +43,7 @@ public class Analysis_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_analysis_main);
+        setContentView(R.layout.activity_tutorial__step5);
 
         final SeekBar lept_no_sb = findViewById(R.id.lept_no_sb);
         final RadioGroup lept_charge_rg = findViewById(R.id.charge_rg);
@@ -62,7 +65,6 @@ public class Analysis_main extends AppCompatActivity {
         final SeekBar miss_mom_min_sb = findViewById(R.id.miss_mom_min_sb);
         final SeekBar miss_mom_max_sb = findViewById(R.id.miss_mom_max_sb);
         final SeekBar percent_data_sb = findViewById(R.id.percent_sb);
-        final Button aButton = findViewById(R.id.analyse_button);
 
         lept_no_sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -310,9 +312,11 @@ public class Analysis_main extends AppCompatActivity {
             }
         });
 
-        aButton.setOnClickListener(new View.OnClickListener() {
+        //button to return to choosing values to analyse
+        Button samples_button = findViewById(R.id.samples);
+        samples_button.setOnClickListener(new Button.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 AnalysisKey aKey = new AnalysisKey(key);
                 key = aKey.getValuesKey(lept_no, lept_charge, lept_flavour, lept_1_inv_mass,
                         lept_2_inv_mass, lept_err_inv_mass, lept_min_mass, lept_max_mass, lept_mom,
@@ -320,10 +324,9 @@ public class Analysis_main extends AppCompatActivity {
                         missing_trans_mom_min, missing_trans_mom_max, percent_data, lept_charge_chk,
                         lept_flavour_chk, lept_inv_mass_chk, lept_mom_chk, bTag_jets_chk,
                         lept_no_chk, jets_chk, missing_trans_chk);
-                Intent goToTab = new Intent(Analysis_main.this, Analysis_samples.class);
+                Intent goToTab = new Intent(Tutorial_Step5.this, Tutorial_Step5_samples.class);
                 goToTab.putExtra("HistKey", key);
                 startActivity(goToTab);
-
             }
         });
     }

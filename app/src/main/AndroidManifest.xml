@@ -23,7 +23,14 @@
         <activity android:name=".About_main" />
         <activity android:name=".Analysis_main" />
         <activity android:name=".Analysis_results" />
-        <activity android:name=".Analysis_samples"></activity>
+        <activity android:name=".Analysis_samples" />
+        <activity android:name=".Tutorial_Step1" />
+        <activity android:name=".Tutorial_Step2" />
+        <activity android:name=".Tutorial_Step3" />
+        <activity android:name=".Tutorial_Step4" />
+        <activity android:name=".Tutorial_Step5" />
+        <activity android:name=".Tutorial_Step5_samples" />
+        <activity android:name=".Tutorial_end"></activity>
     </application>
 
 </manifest>

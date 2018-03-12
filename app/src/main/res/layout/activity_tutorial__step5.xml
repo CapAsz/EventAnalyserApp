@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud3"
-    tools:context="atlas_project.eventanalyser.Analysis_main">
+    tools:context="atlas_project.eventanalyser.Tutorial_Step5">
 
     <Button
-        android:id="@+id/analyse_button"
+        android:id="@+id/samples"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -22,24 +22,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/step4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Step 5: "
+        android:textColor="@color/colorButtonText"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/analyse_button"
+        app:layout_constraintBottom_toTopOf="@+id/samples"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/step4">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="The full dataset is composed of several real experimental data samples and simulated theoretical data samples. The experimental data samples (DataEGamma and DataMuons) contain the collision data at a center-of-mass energy of 8 TeV collected by the ATLAS detectors in 2012. They each contain a compound signal generated from a variety of processes. The theoretical data samples (e.g. Diboson WW, tt¯ -> Jets, etc.) contain data from Monte Carlo simulations of Standard Model processes and a selection of Beyond the Standard Model signals. They each contain the expected signal for the decay process that they're named after."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="34dp" />
+
+            <TextView
+                android:id="@+id/text8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Try re-running the analyses with only the tt¯ -> Jets and tt¯ -> I + X theoretical data samples to get a clearer sense for the expected contribution of the tt¯ decay to the overall signal!"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="34dp" />
 
             <CheckBox
                 android:id="@+id/lept_no"
@@ -1400,5 +1433,4 @@
         </LinearLayout>
 
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

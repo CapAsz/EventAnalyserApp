@@ -19,6 +19,7 @@ import java.util.Iterator;
 public class Analysis_samples extends AppCompatActivity {
     ArrayList<String> samples_list = new ArrayList<>();
     String key = ""; //key of values to analyse
+    int step = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,25 +133,14 @@ public class Analysis_samples extends AppCompatActivity {
         aButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                analyse();
+                AnalysisKey analysisKey = new AnalysisKey(key);
+                key = analysisKey.getKey(samples_list);
                 Intent goToTab = new Intent(Analysis_samples.this, Analysis_results.class);
                 goToTab.putExtra("HistKey", key);
+                goToTab.putExtra("Step", step);
                 startActivity(goToTab);
             }
         });
-    }
-
-    /**
-     * When "analyse" button is clicked compile variables into a string, navigate to results.
-     */
-    public void analyse() {
-        key += "__samplesKey-";
-        Collections.sort(samples_list);
-        Iterator<String> itr = samples_list.iterator();
-        while (itr.hasNext()) {
-            key += itr.next();
-        }
-        System.out.print(key);
     }
 
     /**

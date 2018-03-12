@@ -5,41 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud3"
-    tools:context="atlas_project.eventanalyser.Analysis_main">
+    tools:context="atlas_project.eventanalyser.Tutorial_Step3">
 
     <Button
-        android:id="@+id/analyse_button"
+        android:id="@+id/go2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/black_overlay"
-        android:text="Choose Samples"
+        android:text="Go!"
         android:textColor="@color/colorButtonText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/step2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Step 3: "
+        android:textColor="@color/colorButtonText"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/analyse_button"
+        app:layout_constraintBottom_toTopOf="@+id/go2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/step2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Among the decay products in the tt¯ decay channel are also between 2-6 quarks with 2-4 bottom quarks. We can further isolate the tt¯ decay signal from the background processes by applying this additional cut!"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="At ATLAS, quarks are detected by proxy. A jet (narrow cone of hadrons and other particles) results from the hadronization of these quarks and jet count is therefore an indicator of original quark count. Notice that so far, the dataset has been dominated by W and Z events as these are the most likely to occur. Fortunately, these W and Z events only occur with 0 or 4 jets. In addition, to make a cut specifically for bottom quarks, we'll rely on jet flavor tagging. b-tagged jets are jets that were identified to originate from bottom quarks. Finally, it's generally preferred not to make cuts that are unnecessarily strict as this can shrink the dataset too much! Let's further isolate the tt¯ decay events from the background signal by adding an additional cut for 2-9 jets and 2-4 b-tagged jets."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="8dp" />
 
             <CheckBox
                 android:id="@+id/lept_no"
@@ -329,7 +363,7 @@
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="8"
+                    android:max="4"
                     android:progress="0"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -337,7 +371,6 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/min_mass_" />
-
             </android.support.constraint.ConstraintLayout>
 
             <TextView
@@ -354,7 +387,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/inv_mass_err_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:visibility="gone">
 
                 <TextView
@@ -530,7 +563,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
-                    android:max="8"
+                    android:max="4"
                     android:progress="0"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -641,7 +674,7 @@
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="8"
+                    android:max="4"
                     android:progress="0"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -749,8 +782,8 @@
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="8"
-                    android:progress="8"
+                    android:max="4"
+                    android:progress="4"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1128,224 +1161,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/bTag_max" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <CheckBox
-                android:id="@+id/miss_trans_mom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:onClick="missTransMomSeekBar"
-                android:text="@string/miss_trans_mom_label"
-                android:textColor="@color/colorButtonText"
-                android:textSize="18sp"
-                android:visibility="visible" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/miss_mom_min_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/min_miss_mom_0"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_50"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_50"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_100"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_0"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_100"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="100"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_150"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_50"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_150"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_200"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_100"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_200"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="200"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_150"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/miss_mom_min_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="8"
-                    android:progress="0"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/miss_mom_min" />
-
-                <TextView
-                    android:id="@+id/miss_mom_min"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/miss_mom_max_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/max_miss_mom_0"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_50"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_50"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_100"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_0"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_100"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="100"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_150"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_50"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_150"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_200"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_100"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_200"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="200"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_150"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/miss_mom_max"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/max"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/miss_mom_max_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="8"
-                    android:progress="8"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/miss_mom_max" />
 
             </android.support.constraint.ConstraintLayout>
 

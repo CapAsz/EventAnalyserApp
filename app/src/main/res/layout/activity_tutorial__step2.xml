@@ -5,41 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud3"
-    tools:context="atlas_project.eventanalyser.Analysis_main">
+    tools:context="atlas_project.eventanalyser.Tutorial_Step2">
 
     <Button
-        android:id="@+id/analyse_button"
+        android:id="@+id/go2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/black_overlay"
-        android:text="Choose Samples"
+        android:text="Go!"
         android:textColor="@color/colorButtonText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Step 2: "
+        android:textColor="@color/colorButtonText"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/analyse_button"
+        app:layout_constraintBottom_toTopOf="@+id/go2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/step">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="From this step onwards, some knowledge of the decay products we are interested in is necessary. For example, let us consider the tt¯ decay channel."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="8dp" />
+
+            <TextView
+                android:id="@+id/text10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Among the products is a single lepton with a transverse mass of 30GeV. To isolate the tt¯ decay signal from the background processes that are also picked up in the experimental dataset, we have to place conditions on the data that have to be satisfied. These conditions are refered to as 'cuts'. To begin our analysis, let's make a cut for 1 lepton with a transverse mass of approximately 30GeV."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="8dp" />
 
             <CheckBox
                 android:id="@+id/lept_no"
@@ -337,7 +371,6 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/min_mass_" />
-
             </android.support.constraint.ConstraintLayout>
 
             <TextView
@@ -354,7 +387,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/inv_mass_err_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:visibility="gone">
 
                 <TextView
@@ -860,492 +893,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/min_trans_0" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <CheckBox
-                android:id="@+id/jets_no"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:onClick="jetNoSeekBar"
-                android:text="@string/no_jets"
-                android:textColor="@color/colorButtonText"
-                android:textSize="18sp" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/jet_min_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/jets_no_min_sb"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/jet_no_min_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="0"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/jet_no_min_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="9"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/jets_min"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/jets_no_min_sb"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/jets_no_min_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="18dp"
-                    android:max="9"
-                    android:progress="0"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/jets_min" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/jet_max_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/jets_no_max_sb"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/jet_no_max_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="0"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/jet_no_max_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="9"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/jets_max"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/max"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/jets_no_max_sb"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/jets_no_max_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="9"
-                    android:progress="9"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/jets_max" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <CheckBox
-                android:id="@+id/bTag_jets"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:onClick="bTagJetsSeekBar"
-                android:text="@string/bTag_jets"
-                android:textColor="@color/colorButtonText"
-                android:textSize="18sp"
-                android:visibility="gone" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/bTag_min_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/jets_no_min_sb"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/bTag_no_min_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="0"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/bTag_no_min_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="9"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/bTag_jets_min_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="9"
-                    android:progress="0"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/bTag_min" />
-
-                <TextView
-                    android:id="@+id/bTag_min"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/bTag_max_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/jets_no_min_sb"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/bTag_no_max_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:text="0"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/bTag_no_max_9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="9"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/bTag_max"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/max"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/bTag_jets_max_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="9"
-                    android:progress="0"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/bTag_max" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <CheckBox
-                android:id="@+id/miss_trans_mom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:onClick="missTransMomSeekBar"
-                android:text="@string/miss_trans_mom_label"
-                android:textColor="@color/colorButtonText"
-                android:textSize="18sp"
-                android:visibility="visible" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/miss_mom_min_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/min_miss_mom_0"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_50"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_50"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_100"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_0"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_100"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="100"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_150"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_50"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_150"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/min_miss_mom_200"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_100"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/min_miss_mom_200"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="200"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/min_miss_mom_150"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/miss_mom_min_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="8"
-                    android:progress="0"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/miss_mom_min" />
-
-                <TextView
-                    android:id="@+id/miss_mom_min"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/miss_mom_max_labels_layout"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginTop="8dp"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/max_miss_mom_0"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="0"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_50"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_50"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="50"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_100"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_0"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_100"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="100"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_150"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_50"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_150"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/max_miss_mom_200"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_100"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/max_miss_mom_200"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:text="200"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/max_miss_mom_150"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/miss_mom_max"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/max"
-                    android:textColor="@color/colorButtonText"
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <SeekBar
-                    android:id="@+id/miss_mom_max_sb"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:max="8"
-                    android:progress="8"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/miss_mom_max" />
 
             </android.support.constraint.ConstraintLayout>
 

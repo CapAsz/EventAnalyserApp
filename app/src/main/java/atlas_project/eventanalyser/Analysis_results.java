@@ -42,11 +42,17 @@ public class Analysis_results extends AppCompatActivity {
     private String key = "";                               //key of values to fetch histograms
     HashMap<String, Drawable> hist_list = new HashMap<>(); //hashmap of histograms and labels
     int dis_width;                                         //device screen width
+    int step;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_results);
+        step = getIntent().getIntExtra("Step", 0);
+        Button nextButton = findViewById(R.id.next_button);
+        if (step != 0) {
+            nextButton.setVisibility(View.VISIBLE);
+        }
         final ProgressBar progress = findViewById(R.id.progressBar);
         progress.setVisibility(View.VISIBLE);
 
@@ -122,8 +128,57 @@ public class Analysis_results extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (step == 0) {
                 Intent goToTab = new Intent(Analysis_results.this, Analysis_main.class);
                 startActivity(goToTab);
+            }
+                if (step == 1) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step1.class);
+                    startActivity(goToTab);
+                }
+                if (step == 2) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step2.class);
+                    startActivity(goToTab);
+                }
+                if (step == 3) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step3.class);
+                    startActivity(goToTab);
+                }
+                if (step == 4) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step4.class);
+                    startActivity(goToTab);
+                }
+                if (step == 5) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step5.class);
+                    startActivity(goToTab);
+                }
+            }
+        });
+
+        //button to return to choosing values to analyse
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (step == 1) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step2.class);
+                    startActivity(goToTab);
+                }
+                if (step == 2) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step3.class);
+                    startActivity(goToTab);
+                }
+                if (step == 3) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step4.class);
+                    startActivity(goToTab);
+                }
+                if (step == 4) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step5.class);
+                    startActivity(goToTab);
+                }
+                if (step == 5) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_end.class);
+                    startActivity(goToTab);
+                }
             }
         });
     }

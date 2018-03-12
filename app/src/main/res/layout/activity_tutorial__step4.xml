@@ -5,41 +5,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud3"
-    tools:context="atlas_project.eventanalyser.Analysis_main">
+    tools:context="atlas_project.eventanalyser.Tutorial_Step4">
 
     <Button
-        android:id="@+id/analyse_button"
+        android:id="@+id/go2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/black_overlay"
-        android:text="Choose Samples"
+        android:text="Go!"
         android:textColor="@color/colorButtonText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/step3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Step 4: "
+        android:textColor="@color/colorButtonText"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/Text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        app:layout_constraintBottom_toTopOf="@+id/analyse_button"
+        app:layout_constraintBottom_toTopOf="@+id/go2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/step3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="A neutrino is also among the decay products in the tt¯ decay channel. We can more fully isolate the tt¯ decay events from the background signal by applying this final cut!"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Step" />
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Neutrinos are not directly detected by the ATLAS detectors as they rarely interact with other particles. Instead, the presence of neutrinos is inferred from missing transverse momentum. Looking at the distribution of missing momenta, the tt¯ decay signal appears to dominate at higher missing energies. Try adding a final additional cut for a large missing transverse momentum of about 30 GeV to further isolate the the tt¯ decay events!"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Step" />
 
             <CheckBox
                 android:id="@+id/lept_no"
