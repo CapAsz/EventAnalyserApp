@@ -11,9 +11,7 @@ import java.util.Iterator;
 public class AnalysisKey {
     public String key = ""; //key for fetching histograms (missing samples)
 
-    AnalysisKey(String key) {
-        this.key = key;
-    }
+    AnalysisKey(String key) {this.key = key;}
 
     public String getValuesKey(int lept_no, int lept_charge, int lept_flavour, int lept_1_inv_mass,
                 int lept_2_inv_mass, int lept_err_inv_mass, int lept_min_mass, int lept_max_mass,

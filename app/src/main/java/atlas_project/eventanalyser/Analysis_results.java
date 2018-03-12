@@ -63,8 +63,30 @@ public class Analysis_results extends AppCompatActivity {
         noHistAlert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 noHistAlert.create().hide();
-                Intent goToTab = new Intent(Analysis_results.this, Analysis_main.class);
-                startActivity(goToTab);
+                if (step == 0) {
+                    Intent goToTab = new Intent(Analysis_results.this, Analysis_main.class);
+                    startActivity(goToTab);
+                }
+                if (step == 1) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step1.class);
+                    startActivity(goToTab);
+                }
+                if (step == 2) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step2.class);
+                    startActivity(goToTab);
+                }
+                if (step == 3) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step3.class);
+                    startActivity(goToTab);
+                }
+                if (step == 4) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step4.class);
+                    startActivity(goToTab);
+                }
+                if (step == 5) {
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step5.class);
+                    startActivity(goToTab);
+                }
             }
         });
         noHistAlert.setCancelable(true);
@@ -131,7 +153,7 @@ public class Analysis_results extends AppCompatActivity {
                 if (step == 0) {
                 Intent goToTab = new Intent(Analysis_results.this, Analysis_main.class);
                 startActivity(goToTab);
-            }
+                }
                 if (step == 1) {
                     Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step1.class);
                     startActivity(goToTab);

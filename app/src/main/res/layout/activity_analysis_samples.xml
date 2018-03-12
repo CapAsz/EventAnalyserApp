@@ -4,868 +4,859 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroud3"
     tools:context="atlas_project.eventanalyser.Analysis_samples">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgroud3"
+    <Button
+        android:id="@+id/analyse_button"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/black_overlay"
+        android:text="@string/button_analyse"
+        android:textColor="@color/colorButtonText"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toTopOf="@+id/analyse_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context="atlas_project.eventanalyser.Analysis_main">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/analyse_button"
-            android:layout_width="107dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@color/black_overlay"
-            android:text="@string/button_analyse"
-            android:textColor="@color/colorButtonText"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:orientation="vertical">
 
-        <ScrollView
-            android:id="@+id/scrollView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toTopOf="@+id/analyse_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/setSamples_chk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:onClick="setSamples"
+                android:text="@string/setSamples_label"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/samples_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <CheckBox
-                    android:id="@+id/setSamples_chk"
+                    android:id="@+id/data"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:onClick="setSamples"
-                    android:text="@string/setSamples_label"
+                    android:onClick="dataSamples"
+                    android:text="ATLAS 2012 data:"
                     android:textColor="@color/colorButtonText"
                     android:textSize="18sp"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
 
-                <LinearLayout
-                    android:id="@+id/samples_layout"
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/data_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:visibility="gone">
 
                     <CheckBox
-                        android:id="@+id/data"
-                        android:layout_width="match_parent"
+                        android:id="@+id/data_Egamma"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="dataSamples"
-                        android:text="ATLAS 2012 data:"
+                        android:text="Egamma-string sample"
                         android:textColor="@color/colorButtonText"
                         android:textSize="18sp"
                         android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/data_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone">
-
-                        <CheckBox
-                            android:id="@+id/data_Egamma"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Egamma-string sample"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/data_Muons"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/data_Muons"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Muons-string sample"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/data_Egamma" />
-                    </android.support.constraint.ConstraintLayout>
+                        app:layout_constraintEnd_toStartOf="@+id/data_Muons"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/diboson"
-                        android:layout_width="match_parent"
+                        android:id="@+id/data_Muons"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="dibosonSamples"
-                        android:text="@string/diboson"
+                        android:text="Muons-string sample"
                         android:textColor="@color/colorButtonText"
                         android:textSize="18sp"
                         android:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/data_Egamma" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/diboson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="dibosonSamples"
+                    android:text="@string/diboson"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/diboson_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/diboson">
+
+                    <CheckBox
+                        android:id="@+id/WW"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/WW_label"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/ZZ"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/ZZ"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ZZ_label"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/WZ"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/WW" />
+
+                    <CheckBox
+                        android:id="@+id/WZ"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/WZ"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/ZZ" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/stop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="stopSamples"
+                    android:text="@string/single_top"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/diboson_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/stop_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stop">
+
+                    <CheckBox
+                        android:id="@+id/stop_tchan_top"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="t-channel top"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/stop_tchan_antitop"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/diboson_layout"
-                        android:layout_width="match_parent"
+                    <CheckBox
+                        android:id="@+id/stop_tchan_antitop"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="t-channel antitop"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/stop_tchan_top"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/stop_schan"
+                        android:layout_width="0dp"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="8dp"
+                        android:text="s-channel"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/stop_wtchan"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                    <CheckBox
+                        android:id="@+id/stop_wtchan"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Wt-channel"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/stop_schan"
+                        app:layout_constraintTop_toBottomOf="@+id/stop_tchan_antitop"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/ttbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="ttbarSamples"
+                    android:text="Top quark pair processes:"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/stop_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/ttbar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ttbar">
+
+                    <CheckBox
+                        android:id="@+id/ttbar_had"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="ttbar → Jets"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/ttbar_lep"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                    <CheckBox
+                        android:id="@+id/ttbar_lep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ttbar → l + X"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ttbar_had"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/Zjets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="ZjetsSamples"
+                    android:text="Z + jets processes:"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ttbar_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/Zjets_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Zjets">
+
+                    <CheckBox
+                        android:id="@+id/Zee"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Zee + jets"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/Zmumu"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/Zmumu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Zμμ + Jets"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/Ztautau"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/Zee"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/Ztautau"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Zττ + Jets"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/Zmumu"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/DrellYan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="DrellYanSamples"
+                    android:text="Drell-Yan processes:"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Zjets_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/DrellYan_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/DrellYan">
+
+                    <CheckBox
+                        android:id="@+id/DYeeM08"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="ee with Mee[8-15] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/DYeeM15"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/DYeeM15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="ee with Mee[15-40] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/DYeeM08"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/DYmumuM08"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:visibility="gone"
+                        android:text="μμ with Mμμ[08-15] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/DYmumuM15"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/DYeeM08"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                    <CheckBox
+                        android:id="@+id/DYmumuM15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="μμ with Mμμ[15-40] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/DYmumuM08"
+                        app:layout_constraintTop_toBottomOf="@+id/DYeeM15"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                    <CheckBox
+                        android:id="@+id/DYtautauM08"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text=" ττ with Mττ[08-15] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/DYtautauM15"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/DYmumuM08"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+                    <CheckBox
+                        android:id="@+id/DYtautauM15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="ττ with Mττ[15-40] GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/DYtautauM08"
+                        app:layout_constraintTop_toBottomOf="@+id/DYmumuM15"
+                        app:layout_constraintVertical_chainStyle="spread_inside" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/Wjets"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="WjetsSamples"
+                    android:text="W + jets processes:"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/Wjets_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <CheckBox
+                        android:id="@+id/WenuWithB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Weν + Jets with b"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/WenuJetsBVeto"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/WenuJetsBVeto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Weν + Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/WmunuWithB"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/WenuWithB"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread" />
+
+                    <CheckBox
+                        android:id="@+id/WenuNoJetsBVeto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Weν no Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/WmunuWithB"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/WenuWithB" />
+
+                    <CheckBox
+                        android:id="@+id/WmunuWithB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Wμν + Jets with b"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/WmunuNoJetsBVeto"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/WenuNoJetsBVeto"
+                        app:layout_constraintTop_toBottomOf="@+id/WenuJetsBVeto"
+                        app:layout_constraintVertical_chainStyle="spread" />
+
+                    <CheckBox
+                        android:id="@+id/WmunuJetsBVeto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Wμν + Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/WmunuNoJetsBVeto"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/WenuNoJetsBVeto" />
+
+                    <CheckBox
+                        android:id="@+id/WmunuNoJetsBVeto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Wμν no Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/WtaunuJetsBVeto"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/WmunuJetsBVeto"
+                        app:layout_constraintTop_toBottomOf="@+id/WmunuWithB" />
+
+                    <CheckBox
+                        android:id="@+id/WtaunuWithB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Wτν + Jets with b"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/WtaunuJetsBVeto"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/WmunuJetsBVeto" />
+
+                    <CheckBox
+                        android:id="@+id/WtaunuJetsBVeto"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Wτν + Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/WtaunuNoJetsBVeto"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/WtaunuWithB"
+                        app:layout_constraintTop_toBottomOf="@+id/WmunuNoJetsBVeto"
+                        app:layout_constraintVertical_chainStyle="spread" />
+
+                    <CheckBox
+                        android:id="@+id/WtaunuNoJetsBVeto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Wτν no Jets with b veto"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.473"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/WtaunuWithB" />
+                </android.support.constraint.ConstraintLayout>
+
+                <CheckBox
+                    android:id="@+id/Zprime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="ZprimeSamples"
+                    android:text="Z' processes:"
+                    android:textColor="@color/colorButtonText"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/Zprime_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <CheckBox
+                        android:id="@+id/ZPrime400"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Z' → tt with MZ' = 400 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime750"
+                        app:layout_constraintEnd_toStartOf="@+id/ZPrime500"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime500"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Z' → tt with MZ' = 500 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime1000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ZPrime400"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="spread" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime750"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Z' → tt with MZ' = 750 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime1250"
+                        app:layout_constraintEnd_toStartOf="@+id/ZPrime1000"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime400" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime1000"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Z' → tt with MZ' = 1000 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime1500"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ZPrime750"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime500" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime1250"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Z' → tt with MZ' = 1250 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime1750"
+                        app:layout_constraintEnd_toStartOf="@+id/ZPrime1500"
                         app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/diboson">
-
-                        <CheckBox
-                            android:id="@+id/WW"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/WW_label"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/ZZ"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/ZZ"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/ZZ_label"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/WZ"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/WW" />
-
-                        <CheckBox
-                            android:id="@+id/WZ"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/WZ"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/ZZ" />
-                    </android.support.constraint.ConstraintLayout>
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime750" />
 
                     <CheckBox
-                        android:id="@+id/stop"
-                        android:layout_width="match_parent"
+                        android:id="@+id/ZPrime1500"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Z' → tt with MZ' = 1500 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime2000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ZPrime1250"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime1000" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime1750"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="stopSamples"
-                        android:text="@string/single_top"
+                        android:text="Z' → tt with MZ' = 1750 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime2250"
+                        app:layout_constraintEnd_toStartOf="@+id/ZPrime2000"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime1250" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime2000"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Z' → tt with MZ' = 2000 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime2500"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ZPrime1750"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime1500" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime2250"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Z' → tt with MZ' = 2250 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toStartOf="@+id/ZPrime2500"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime1750" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime2500"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Z' → tt with MZ' = 2500 GeV"
+                        android:textColor="@color/colorButtonText"
+                        android:textSize="18sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/ZPrime3000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toEndOf="@+id/ZPrime2250"
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime2000" />
+
+                    <CheckBox
+                        android:id="@+id/ZPrime3000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Z' → tt with MZ' = 3000 GeV"
                         android:textColor="@color/colorButtonText"
                         android:textSize="18sp"
                         android:visibility="visible"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="0.471"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/diboson_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/stop_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/stop">
-
-                        <CheckBox
-                            android:id="@+id/stop_tchan_top"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text="t-channel top"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/stop_tchan_antitop"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/stop_tchan_antitop"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="t-channel antitop"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/stop_tchan_top"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/stop_schan"
-                            android:layout_width="0dp"
-                            android:layout_height="34dp"
-                            android:layout_marginStart="8dp"
-                            android:text="s-channel"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/stop_wtchan"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                        <CheckBox
-                            android:id="@+id/stop_wtchan"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="Wt-channel"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/stop_schan"
-                            app:layout_constraintTop_toBottomOf="@+id/stop_tchan_antitop"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                    </android.support.constraint.ConstraintLayout>
-
-                    <CheckBox
-                        android:id="@+id/ttbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="ttbarSamples"
-                        android:text="Top quark pair processes:"
-                        android:textColor="@color/colorButtonText"
-                        android:textSize="18sp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/stop_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/ttbar_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ttbar">
-
-                        <CheckBox
-                            android:id="@+id/ttbar_had"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="ttbar → Jets"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/ttbar_lep"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                        <CheckBox
-                            android:id="@+id/ttbar_lep"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ttbar → l + X"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ttbar_had"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-                    </android.support.constraint.ConstraintLayout>
-
-                    <CheckBox
-                        android:id="@+id/Zjets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="ZjetsSamples"
-                        android:text="Z + jets processes:"
-                        android:textColor="@color/colorButtonText"
-                        android:textSize="18sp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ttbar_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/Zjets_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/Zjets">
-
-                        <CheckBox
-                            android:id="@+id/Zee"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Zee + jets"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/Zmumu"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/Zmumu"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Zμμ + Jets"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/Ztautau"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/Zee"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/Ztautau"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Zττ + Jets"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/Zmumu"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </android.support.constraint.ConstraintLayout>
-
-                    <CheckBox
-                        android:id="@+id/DrellYan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="DrellYanSamples"
-                        android:text="Drell-Yan processes:"
-                        android:textColor="@color/colorButtonText"
-                        android:textSize="18sp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/Zjets_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/DrellYan_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/DrellYan">
-
-                        <CheckBox
-                            android:id="@+id/DYeeM08"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="ee with Mee[8-15] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/DYeeM15"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/DYeeM15"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="ee with Mee[15-40] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/DYeeM08"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/DYmumuM08"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text="μμ with Mμμ[08-15] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/DYmumuM15"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/DYeeM08"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                        <CheckBox
-                            android:id="@+id/DYmumuM15"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="μμ with Mμμ[15-40] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/DYmumuM08"
-                            app:layout_constraintTop_toBottomOf="@+id/DYeeM15"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                        <CheckBox
-                            android:id="@+id/DYtautauM08"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:text=" ττ with Mττ[08-15] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/DYtautauM15"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/DYmumuM08"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-                        <CheckBox
-                            android:id="@+id/DYtautauM15"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="ττ with Mττ[15-40] GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/DYtautauM08"
-                            app:layout_constraintTop_toBottomOf="@+id/DYmumuM15"
-                            app:layout_constraintVertical_chainStyle="spread_inside" />
-                    </android.support.constraint.ConstraintLayout>
-
-                    <CheckBox
-                        android:id="@+id/Wjets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="WjetsSamples"
-                        android:text="W + jets processes:"
-                        android:textColor="@color/colorButtonText"
-                        android:textSize="18sp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/Wjets_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone">
-
-                        <CheckBox
-                            android:id="@+id/WenuWithB"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Weν + Jets with b"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/WenuJetsBVeto"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/WenuJetsBVeto"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Weν + Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/WmunuWithB"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/WenuWithB"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="spread" />
-
-                        <CheckBox
-                            android:id="@+id/WenuNoJetsBVeto"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Weν no Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/WmunuWithB"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/WenuWithB" />
-
-                        <CheckBox
-                            android:id="@+id/WmunuWithB"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Wμν + Jets with b"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/WmunuNoJetsBVeto"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/WenuNoJetsBVeto"
-                            app:layout_constraintTop_toBottomOf="@+id/WenuJetsBVeto"
-                            app:layout_constraintVertical_chainStyle="spread" />
-
-                        <CheckBox
-                            android:id="@+id/WmunuJetsBVeto"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Wμν + Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/WmunuNoJetsBVeto"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/WenuNoJetsBVeto" />
-
-                        <CheckBox
-                            android:id="@+id/WmunuNoJetsBVeto"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Wμν no Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/WtaunuJetsBVeto"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/WmunuJetsBVeto"
-                            app:layout_constraintTop_toBottomOf="@+id/WmunuWithB" />
-
-                        <CheckBox
-                            android:id="@+id/WtaunuWithB"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Wτν + Jets with b"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/WtaunuJetsBVeto"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/WmunuJetsBVeto" />
-
-                        <CheckBox
-                            android:id="@+id/WtaunuJetsBVeto"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Wτν + Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/WtaunuNoJetsBVeto"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/WtaunuWithB"
-                            app:layout_constraintTop_toBottomOf="@+id/WmunuNoJetsBVeto"
-                            app:layout_constraintVertical_chainStyle="spread" />
-
-                        <CheckBox
-                            android:id="@+id/WtaunuNoJetsBVeto"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Wτν no Jets with b veto"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.473"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/WtaunuWithB" />
-                    </android.support.constraint.ConstraintLayout>
-
-                    <CheckBox
-                        android:id="@+id/Zprime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:onClick="ZprimeSamples"
-                        android:text="Z' processes:"
-                        android:textColor="@color/colorButtonText"
-                        android:textSize="18sp"
-                        android:visibility="visible"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/DrellYan_layout" />
-
-                    <android.support.constraint.ConstraintLayout
-                        android:id="@+id/Zprime_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:visibility="gone">
-
-                        <CheckBox
-                            android:id="@+id/ZPrime400"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 400 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime750"
-                            app:layout_constraintEnd_toStartOf="@+id/ZPrime500"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime500"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Z' → tt with MZ' = 500 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime1000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ZPrime400"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_chainStyle="spread" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime750"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 750 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime1250"
-                            app:layout_constraintEnd_toStartOf="@+id/ZPrime1000"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime400" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime1000"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Z' → tt with MZ' = 1000 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime1500"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ZPrime750"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime500" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime1250"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 1250 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime1750"
-                            app:layout_constraintEnd_toStartOf="@+id/ZPrime1500"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime750" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime1500"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Z' → tt with MZ' = 1500 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime2000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ZPrime1250"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime1000" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime1750"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 1750 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime2250"
-                            app:layout_constraintEnd_toStartOf="@+id/ZPrime2000"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime1250" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime2000"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Z' → tt with MZ' = 2000 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime2500"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ZPrime1750"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime1500" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime2250"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 2250 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toStartOf="@+id/ZPrime2500"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime1750" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime2500"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="Z' → tt with MZ' = 2500 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toTopOf="@+id/ZPrime3000"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintHorizontal_chainStyle="spread_inside"
-                            app:layout_constraintStart_toEndOf="@+id/ZPrime2250"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime2000" />
-
-                        <CheckBox
-                            android:id="@+id/ZPrime3000"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="Z' → tt with MZ' = 3000 GeV"
-                            android:textColor="@color/colorButtonText"
-                            android:textSize="18sp"
-                            android:visibility="visible"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.471"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/ZPrime2250" />
-                    </android.support.constraint.ConstraintLayout>
-
-                </LinearLayout>
+                        app:layout_constraintTop_toBottomOf="@+id/ZPrime2250" />
+                </android.support.constraint.ConstraintLayout>
 
             </LinearLayout>
 
-        </ScrollView>
+        </LinearLayout>
 
-    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
