@@ -115,7 +115,7 @@ public class Analysis_samples extends AppCompatActivity {
         allchk.put("data_Muons", data_Muons);
 
         for (String string : allchk.keySet()) {
-            final String sample = "__" +string;
+            final String sample = "___" +string;
             final CheckBox chk = allchk.get(string);
             chk.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
                 @Override

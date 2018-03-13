@@ -109,7 +109,7 @@ public class Analysis_results extends AppCompatActivity {
 
         //retrieve key and fetch histograms
         key = getIntent().getStringExtra("HistKey");
-        Log.i("Fetch Key:", key);
+        Log.w("Fetch Key:", key);
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("imgStore").document(key);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot> () {
             @Override

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "499422753903",
+    "firebase_url": "https://fir-aod.firebaseio.com",
+    "project_id": "fir-aod",
+    "storage_bucket": "fir-aod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499422753903:android:98806af8d11bb7a1",
+        "android_client_info": {
+          "package_name": "atlas_project.eventanalyser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499422753903-ltfkcjqh80amnb0ma7ofvs0ree3ibqbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnh2bJxoIWT7UoCygIpB7tI4T_sBAnayw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
