@@ -30,7 +30,8 @@
         <activity android:name=".Tutorial_Step4" />
         <activity android:name=".Tutorial_Step5" />
         <activity android:name=".Tutorial_Step5_samples" />
-        <activity android:name=".Tutorial_end"></activity>
+        <activity android:name=".Tutorial_end" />
+        <activity android:name=".Tutorial_coordinates"></activity>
     </application>
 
 </manifest>

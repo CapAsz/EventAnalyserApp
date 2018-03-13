@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -192,6 +193,16 @@ public class Tutorial_Step2 extends AppCompatActivity {
                 goToTab.putExtra("HistKey", key);
                 goToTab.putExtra("Step", step);
                 startActivity(goToTab);
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home5);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Tutorial_Step2.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }

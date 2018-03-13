@@ -71,5 +71,15 @@ public class Tutorial_Step1 extends AppCompatActivity {
                 startActivity(goToTab);
             }
         });
+
+        ImageButton home = findViewById(R.id.home4);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Tutorial_Step1.this, Menu.class);
+                startActivity(goToTab);
+
+            }
+        });
     }
 }

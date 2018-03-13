@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud3"
+    tools:context="atlas_project.eventanalyser.Tutorial_coordinates">
+
+    <ImageButton
+        android:id="@+id/home11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/black_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_home" />
+
+    <Button
+        android:id="@+id/back_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/black_overlay"
+        android:text="@string/back_button"
+        android:textColor="@color/colorButtonText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next_button2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/next_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/black_overlay"
+        android:text="Next"
+        android:textColor="@color/colorButtonText"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/back_button2" />
+
+    <TextView
+        android:id="@+id/step6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="About ∅,  η, and p_T"
+        android:textColor="@color/colorButtonText"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/back_button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The coordinate system commonly used in particle physics defines the z-axis as the beam direction. The coordinates used to define spatial quantitates are (∅,η,r). Here ∅ (phi) is the azimuthal angle, r is a coordinate in the x-y plane, and η (eta) is pseudorapidity. Pseudorapidity is defined as"
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="63dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                app:srcCompat="@drawable/equation1" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="which is a spatial coordinate dependent only on θ."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="η is used because in high momentum regimes differences in η are approximately Lorentz invariant with respect to boosts in the z-axis. This invariance is important as boosts in the z-axis are often a consequence of the beams rather than the physics of the particle collision itself."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="The coordinates used in the data are (∅,η,p_T), where p_T is the transverse momentum. This is the momentum in the previously defined r-direction. The subscript refers to the transverse direction where the momentum is invariant with the boost due to the beam."
+                android:textColor="@color/colorButtonText"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

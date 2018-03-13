@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Tutorial_end extends AppCompatActivity {
 
@@ -28,6 +29,16 @@ public class Tutorial_end extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToTab = new Intent(Tutorial_end.this, Analysis_main.class);
                 startActivity(goToTab);
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home3);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Tutorial_end.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }

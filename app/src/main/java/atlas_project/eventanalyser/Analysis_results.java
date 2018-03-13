@@ -182,7 +182,7 @@ public class Analysis_results extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (step == 1) {
-                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_Step2.class);
+                    Intent goToTab = new Intent(Analysis_results.this, Tutorial_coordinates.class);
                     startActivity(goToTab);
                 }
                 if (step == 2) {
@@ -201,6 +201,16 @@ public class Analysis_results extends AppCompatActivity {
                     Intent goToTab = new Intent(Analysis_results.this, Tutorial_end.class);
                     startActivity(goToTab);
                 }
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Analysis_results.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }

@@ -326,6 +326,16 @@ public class Analysis_main extends AppCompatActivity {
 
             }
         });
+
+        ImageButton home = findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Analysis_main.this, Menu.class);
+                startActivity(goToTab);
+
+            }
+        });
     }
 
     /**

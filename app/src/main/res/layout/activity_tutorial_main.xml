@@ -7,6 +7,17 @@
     android:background="@drawable/backgroud1"
     tools:context="atlas_project.eventanalyser.Tutorial_main">
 
+    <ImageButton
+        android:id="@+id/home2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/black_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_home" />
+
     <TextView
         android:id="@+id/title3"
         android:layout_width="337dp"
@@ -43,7 +54,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="28dp"
         android:background="@color/black_overlay"
         android:text="1"
@@ -58,7 +69,7 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="52dp"
         android:layout_marginTop="28dp"
         android:background="@color/black_overlay"
         android:text="2"
@@ -73,7 +84,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="24dp"
         android:background="@color/black_overlay"
         android:text="3"
@@ -88,7 +99,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="52dp"
         android:layout_marginTop="24dp"
         android:background="@color/black_overlay"
         android:text="4"
@@ -118,7 +129,7 @@
         android:id="@+id/full_analysis_bt"
         android:layout_width="198dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@color/black_overlay"

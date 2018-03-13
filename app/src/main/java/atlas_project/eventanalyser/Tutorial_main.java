@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Tutorial_main extends AppCompatActivity {
 
@@ -82,6 +83,16 @@ public class Tutorial_main extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToTab = new Intent(Tutorial_main.this, Analysis_main.class);
                 startActivity(goToTab);
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home2);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Tutorial_main.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }

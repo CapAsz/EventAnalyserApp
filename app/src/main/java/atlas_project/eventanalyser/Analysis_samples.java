@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -139,6 +140,16 @@ public class Analysis_samples extends AppCompatActivity {
                 goToTab.putExtra("HistKey", key);
                 goToTab.putExtra("Step", step);
                 startActivity(goToTab);
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Analysis_samples.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }

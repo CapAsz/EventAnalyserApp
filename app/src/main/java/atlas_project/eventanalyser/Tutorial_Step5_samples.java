@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class Tutorial_Step5_samples extends AppCompatActivity {
         allchk.put("ttbar_lep", ttbar_lep);
 
         for (String string : allchk.keySet()) {
-            final String sample = "__" +string;
+            final String sample = "___" +string;
             final CheckBox chk = allchk.get(string);
             chk.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
                 @Override
@@ -60,6 +61,16 @@ public class Tutorial_Step5_samples extends AppCompatActivity {
                 goToTab.putExtra("HistKey", key);
                 goToTab.putExtra("Step", step);
                 startActivity(goToTab);
+            }
+        });
+
+        ImageButton home = findViewById(R.id.home9);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToTab = new Intent(Tutorial_Step5_samples.this, Menu.class);
+                startActivity(goToTab);
+
             }
         });
     }
