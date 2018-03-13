@@ -1,5 +1,6 @@
 package atlas_project.eventanalyser;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
@@ -42,6 +44,7 @@ public class Analysis_results extends AppCompatActivity {
     private String key = "";                               //key of values to fetch histograms
     HashMap<String, Drawable> hist_list = new HashMap<>(); //hashmap of histograms and labels
     int dis_width;                                         //device screen width
+    int dis_height;
     int step;
 
     @Override
@@ -49,12 +52,19 @@ public class Analysis_results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analysis_results);
         step = getIntent().getIntExtra("Step", 0);
+
         Button nextButton = findViewById(R.id.next_button);
         if (step != 0) {
             nextButton.setVisibility(View.VISIBLE);
         }
         final ProgressBar progress = findViewById(R.id.progressBar);
         progress.setVisibility(View.VISIBLE);
+
+        //get size of screen
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        dis_width = displayMetrics.widthPixels;
+        dis_height = displayMetrics.heightPixels;
 
         //set up error message for no histogram
         final AlertDialog.Builder noHistAlert  = new AlertDialog.Builder(this);
@@ -101,11 +111,6 @@ public class Analysis_results extends AppCompatActivity {
             }
         });
         FireBaseFetchFailAlert.setCancelable(true);
-
-        //get size of screen
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        dis_width = displayMetrics.widthPixels;
 
         //retrieve key and fetch histograms
         key = getIntent().getStringExtra("HistKey");
@@ -224,7 +229,7 @@ public class Analysis_results extends AppCompatActivity {
         //arrange histograms
         for(String key : hist_list.keySet()) {
             Drawable hist = hist_list.get(key);
-            Drawable hist_resized = resize(hist, dis_width);
+            Drawable hist_resized = resize(hist, dis_width, dis_height);
             ImageButton ib = new ImageButton(this);
             ib.setImageDrawable(hist_resized);
             ib.setContentDescription(key);
@@ -239,7 +244,10 @@ public class Analysis_results extends AppCompatActivity {
             tv.setText(s.next());
             tv.setTextSize(18);
             tv.setWidth(dis_width);
-            tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            if (dis_width < dis_height) {
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            }
+            else {tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);}
             tv.setTextColor(getResources().getColor(R.color.colorButtonText));
             ib_layout.addView(tv);
         }
@@ -251,10 +259,18 @@ public class Analysis_results extends AppCompatActivity {
      * @param width width to resize to
      * @return resized histogram as Drawable
      */
-    private Drawable resize(Drawable image, int width) {
+    private Drawable resize(Drawable image, int width, int height) {
         Bitmap bitmap = ((BitmapDrawable)image).getBitmap();
-        int height = bitmap.getHeight()*width/bitmap.getWidth();
-        Bitmap bitmapResized = Bitmap.createScaledBitmap(bitmap, width, height, false);
+        int width_new = width;
+        int height_new = height;
+        if (width < height) {
+            height_new = bitmap.getHeight() * width / bitmap.getWidth();
+        }
+        else {
+            height_new = bitmap.getHeight() * (height-256) / bitmap.getWidth();
+            width_new = bitmap.getWidth() * height_new / bitmap.getHeight();
+        }
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(bitmap, width_new, height_new, false);
         return new BitmapDrawable(getResources(), bitmapResized);
     }
 }
