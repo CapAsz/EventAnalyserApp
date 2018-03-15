@@ -7,6 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:versionCode="2"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
@@ -31,7 +32,8 @@
         <activity android:name=".Tutorial_Step5" />
         <activity android:name=".Tutorial_Step5_samples" />
         <activity android:name=".Tutorial_end" />
-        <activity android:name=".Tutorial_coordinates"></activity>
+        <activity android:name=".Tutorial_coordinates">
+        </activity>
     </application>
 
 </manifest>

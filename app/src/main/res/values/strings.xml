@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Event Analyser</string>
 
-    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_menu">Event Analyser</string>
     <string name="button_tutorial">Tutorial</string>
     <string name="button_analysis">Event Analysis</string>
     <string name="button_settings">Change settings</string>
