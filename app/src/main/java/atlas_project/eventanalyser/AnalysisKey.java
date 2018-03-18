@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 
 /**
- * Created by Ania on 12/03/2018.
+ * Created by Anna on 12/03/2018.
  */
 
 public class AnalysisKey {
