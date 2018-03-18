@@ -20,12 +20,13 @@ public class AnalysisKey {
                 int percent_data, int lept_charge_chk, int lept_flavour_chk, int lept_inv_mass_chk,
                 int lept_mom_chk, int bTag_jets_chk, int lept_no_chk, int jets_chk,
                 int missing_trans_chk) {
-        key = "__nlep_val-" +lept_no+ "__LepTmass_val-" +lept_min_mass+ "__LepTmassMax_val-"
-                +lept_max_mass+ "__InvariantM_val-" +lept_1_inv_mass+ "__InvariantM2_val-"
-                +lept_2_inv_mass+ "__Range_val-" +lept_err_inv_mass+ "__leppt_val-" +lept_mom+
+
+        key = "__nlep_val-" +lept_no+ "__LepTmass_val-" +(float)lept_min_mass+ "__LepTmassMax_val-"
+                +(float)lept_max_mass+ "__InvariantM_val-" +(float)lept_1_inv_mass+ "__InvariantM2_val-"
+                +(float)lept_2_inv_mass+ "__Range_val-" +(float)lept_err_inv_mass+ "__leppt_val-" +(float)lept_mom+
                 "__minnjet_val-" +jets_no_min+ "__maxnjet_val-" +jets_no_max+ "__btagmin_val-"
                 +bTag_jets_no_min+ "__btagmax_val-" +bTag_jets_no_max+ "__minmissE_val-"
-                +missing_trans_mom_min+ "__maxmissE_val-" +missing_trans_mom_max+ "__percentg_val-"
+                +(float)missing_trans_mom_min+ "__maxmissE_val-" +(float)missing_trans_mom_max+ "__percentg_val-"
                 + percent_data + ".0__TwoLepcharge_val-" +lept_charge+ "__TwoLepflavour_val-"
                 +lept_flavour+ "__st_lepchargecb-" +lept_charge_chk+ "__st_lepflavourcb-"
                 +lept_flavour_chk+ "__st_InvMasscb-" +lept_inv_mass_chk+ "__st_lepptcb-"
